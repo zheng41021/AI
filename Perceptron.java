@@ -58,7 +58,7 @@ public class Perceptron {
         Perceptron perceptron = new Perceptron(2);
 
         // 定义训练集
-        double[][] trainingInputs = { { 0, 0 }, { 0, 1 }, { 1, 0 }, { 1, 1 } };
+        double[][] trainingInputs = { { 0, 1 }, { 1, 0 }, { 0, 0 }, { 1, 1 } };
 
         // 标签，即实际结果。非预测结果，根据实际结果指导权重和偏置的值进行改变，从而预测输入特征数据。
         int[] labels = { -1, -1, -1, 1 };
@@ -90,5 +90,10 @@ public class Perceptron {
         testInput[0] = -100; // 训练数据中不存在的数据，根据预测模型，得出负类的预测结果
         prediction = perceptron.predict(testInput);
         System.out.println("Prediction: " + prediction);
+
+        testInput[0] = 100; // 训练数据中不存在的数据，根据预测模型，得出预测结果
+        prediction = perceptron.predict(testInput);
+        System.out.println("Prediction: " + prediction);
+
     }
 }
